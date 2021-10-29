@@ -1,0 +1,58 @@
+body,
+html {
+  height: 100%;
+}
+.start-page {
+  background-color: rgba(57, 57, 214, 0.692);
+  background-image: url("/images/raining-money-gif.gif");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.start-page-main {
+  max-width: 1300px;
+  max-height: 800px;
+  /* background-color: white; */
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+.start-page-img-container {
+  height: 600px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.platform {
+  width: 400px;
+}
+.uncle-scrooge {
+  width: 250px;
+  margin: 0 0 -80px 70px;
+  z-index: 1;
+}
+.coins {
+  width: 150px;
+  z-index: 2;
+  position: absolute;
+  bottom: 170px;
+  left: 270px;
+}
+.start-page-text-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.start-page-text {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  width: 90%;
+  height: fit-content;
+  margin-top: 78px;
+  padding: 48px;
+}
