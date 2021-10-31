@@ -1,10 +1,9 @@
 body,
 html {
   height: 100%;
-  background-color: red;
 }
 .start-page {
-  background-color: rgb(90, 90, 231);
+  background-color: #24a0c4;
   background-image: url("/images/raining-money-gif.gif");
   height: 100%;
   width: 100%;
@@ -14,6 +13,9 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 990;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .start-page-main {
   max-width: 1300px;
@@ -58,4 +60,53 @@ html {
   height: fit-content;
   margin-top: 78px;
   padding: 48px;
+}
+.game-page {
+  background-image: url("/images/sky2.jpg");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clouds {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 50%;
+  justify-content: center;
+  z-index: 10;
+}
+.clouds-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+.cloud {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin: 24px 72px;
+  position: relative;
+}
+.clouds-row img {
+  width: 80%;
+  height: 80%;
+  z-index: 10;
+}
+.bill {
+  background-image: url("/images/billete-100.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 70%;
+  width: 20%;
+  z-index: 1;
+  position: absolute;
+  top: 55%;
+  left: 50%;
 }
