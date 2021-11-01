@@ -2,6 +2,11 @@ body,
 html {
   height: 100%;
 }
+
+html:hover {
+  cursor: url("../images/billete-100.jpg"), auto;
+}
+
 .start-page {
   background-color: #24a0c4;
   background-image: url("/images/raining-money-gif.gif");
@@ -20,7 +25,6 @@ html {
 .start-page-main {
   max-width: 1300px;
   max-height: 800px;
-  /* background-color: white; */
   display: flex;
   flex-direction: row;
   margin: 0 auto;
@@ -41,23 +45,28 @@ html {
   margin: 0 0 -80px 70px;
   z-index: 998;
 }
+.platform-coins {
+  position: relative;
+}
 .coins {
   width: 150px;
   z-index: 999;
   position: absolute;
-  bottom: 170px;
-  left: 270px;
+  bottom: 110px;
+  left: 140px;
 }
 .start-page-text-container {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  min-width: 900px;
+  height: fit-content;
+  border-radius: 15px;
+  padding: 32px 24px;
+}
+.start-page-tex button {
+  width: fit-content;
+  margin: 72px;
 }
 .start-page-text {
-  background-color: rgb(255, 255, 255);
-  border-radius: 15px;
-  width: 90%;
-  height: fit-content;
   margin-top: 78px;
   padding: 48px;
 }
@@ -70,6 +79,7 @@ html {
   background-size: cover;
   z-index: 10;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -100,7 +110,7 @@ html {
   z-index: 10;
 }
 .bill {
-  background-image: url("/images/billete-100.jpg");
+  visibility: hidden;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 70%;
@@ -109,4 +119,21 @@ html {
   position: absolute;
   top: 55%;
   left: 50%;
+}
+#countdown {
+  font-size: 500px;
+  position: absolute;
+  z-index: 20;
+  color: #dd0827;
+}
+#score {
+  position: absolute;
+  top: 8%;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
 }
