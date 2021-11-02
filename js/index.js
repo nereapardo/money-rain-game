@@ -2,8 +2,9 @@ const startBtn = document.querySelector("#start-btn");
 const startPage = document.querySelector(".start-page");
 const gamePage = document.querySelector(".game-page");
 const scoreText = document.querySelector("#score div span");
+const bill = document.querySelector(".bill");
 let scoreArr = [];
-let score = 0;
+let points = 0;
 let countdownFinished = false;
 
 // FUNCTIONS
@@ -27,37 +28,38 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 
-function getRandomPosition() {
-  const randomPosition = `#bill${getRandomNumber(9)}`;
+function getRandomPosition(lastPosition) {
+  const randomValue = getRandomNumber(9);
+  while (randomValue === lastPosition) {
+    randomValue = getRandomNumber(9);
+  }
+  const randomPosition = `#bill${randomValue}`;
   const selectedPosition = document.querySelector(randomPosition);
   return selectedPosition;
-  console.log(getRandomPosition);
 }
 
 function getRandomValue(randomCloud) {
-  console.log("111111");
-  // if (randomCloud.style.visibility == "hidden") {
   let randomValue = getRandomNumber(6);
-  console.log("22222", randomValue);
+  // if (randomCloud.style.visibility == "hidden") {
   if (randomValue <= 3) {
-    console.log("aaaaa");
     randomCloud.style.backgroundImage = "url('/images/billete-100.jpg')";
     randomCloud.style.visibility = "visible";
     const points = 100;
+    console.log("billete100");
     return points;
-  } else if (randomValue <= 5) {
-    console.log("bbbbbb");
+  } else if (randomValue <= 5 && randomValue > 3) {
     randomCloud.style.backgroundImage = "url('/images/billete-200.jpg')";
     randomCloud.style.visibility = "visible";
     const points = 200;
+    console.log("billete200");
     return points;
   } else if (randomValue == 6) {
-    console.log("cccccc");
     randomCloud.style.backgroundImage = "url('/images/billete-500.jpg')";
     randomCloud.style.visibility = "visible";
     const points = 500;
+    console.log("billete500");
     return points;
-    // }
+    // } console.log() para saber que billete estas pasando y comparar con la puntuacion que estás obteniendo a ver si coinciden
   }
 }
 
@@ -66,39 +68,73 @@ function playGame() {
   let counter = 0;
   let expiredBill = null;
   intervalId = setInterval(() => {
-    let cloudPosition = getRandomPosition();
+    let cloudPosition = getRandomPosition(expiredBill);
+    let bill = getRandomValue(cloudPosition);
+    counter++;
     if (!expiredBill) {
-      getRandomValue(cloudPosition);
+      getPoints(bill, cloudPosition);
       expiredBill = cloudPosition;
-      counter++;
     } else {
       expiredBill.style.visibility = "hidden";
-      getRandomValue(cloudPosition);
       expiredBill = cloudPosition;
-      counter++;
+      getPoints(bill, cloudPosition);
     }
 
-    if (counter === 20) {
+    // let cloudPosition = getRandomPosition();
+    // if (!expiredBill) {
+    //   let billPoints = getRandomValue(cloudPosition);
+    //   getPoints(billPoints, cloudPosition);
+    //   expiredBill = cloudPosition;
+    //   counter++;
+    // } else {
+    //   expiredBill.style.visibility = "hidden";
+    //   let billPoints = getRandomValue(cloudPosition);
+    //   getPoints(billPoints, cloudPosition);
+    //   expiredBill = cloudPosition;
+    //   counter++;
+    // }
+    if (counter === 15) {
       clearInterval(intervalId);
       expiredBill.style.visibility = "hidden";
     }
-  }, 1500);
+  }, 5000);
+}
+function getPoints(billPoints, billPosition) {
+  // let points = 0;
+
+  billPosition.addEventListener(
+    "click",
+
+    () => {
+      if (billPosition.style.visibility === "visible") {
+        console.log(`im getting ${billPoints}points`);
+        billPosition.style.visibility = "hidden";
+        console.log(points);
+        points += billPoints;
+        getScore(points);
+      }
+    }
+  );
+
+  //Crearte una variable global;
+  //En el evento click de la nube, sumas el valor a la variable global
+  //en lugar de acceder al valor atraves de este return, lo coges directamente de la variable global
+  // missing return
 }
 
-function getScore(randomBill) {
-  // tengo que cambiar esto, no recibe la callback de posicion random si no de  cuando clico sobre un billete (eventlistener)
-  scoreArr.push(randomBill);
+function getScore(points) {
+  scoreArr.push(points);
   if (
-    scoreArr.length - 1 === 500 &&
+    scoreArr.length - 1 === 500 && //<--- Esto tienes que mirartelo mejor
     scoreArr.length - 2 === 500 &&
     scoreArr.length - 3 === 500
   ) {
-    score += randomBill;
-    scoreText.innerText = score;
+    // score += points;
+    scoreText.innerText = points;
     instantLose();
   } else {
-    score += randomBill;
-    scoreText.innerText = score;
+    console.log(`my score is ${points}`);
+    scoreText.innerText = points;
   }
 }
 function instantLose() {

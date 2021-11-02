@@ -110,7 +110,6 @@ html:hover {
   z-index: 10;
 }
 .bill {
-  visibility: hidden;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 70%;
@@ -120,6 +119,17 @@ html:hover {
   top: 55%;
   left: 50%;
 }
+/* #bill1,
+#bill2,
+#bill3,
+#bill4,
+#bill5,
+#bill6,
+#bill7,
+#bill8,
+#bill9 {
+  visibility: hidden;
+} */
 #countdown {
   font-size: 500px;
   position: absolute;
