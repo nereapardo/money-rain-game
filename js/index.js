@@ -4,7 +4,7 @@ const gamePage = document.querySelector(".game-page");
 const scoreText = document.querySelector("#score div span");
 const bill = document.querySelector(".bill");
 let scoreArr = [];
-let points = 0;
+let score = 0;
 let countdownFinished = false;
 
 // FUNCTIONS
@@ -24,42 +24,55 @@ function startGame() {
   }, 1000);
 }
 
+// Saca numeros aleatorios entre 1-3 para billetes y 1-9 para id de posicion cloud
 function getRandomNumber(max) {
-  return Math.ceil(Math.random() * max);
+  const res = Math.ceil(Math.random() * max);
+
+  return res;
 }
 
-function getRandomPosition(lastPosition) {
-  const randomValue = getRandomNumber(9);
-  while (randomValue === lastPosition) {
-    randomValue = getRandomNumber(9);
-  }
-  const randomPosition = `#bill${randomValue}`;
+function getRandomPosition() {
+  const randomPosition = `#bill${getRandomNumber(9)}`;
   const selectedPosition = document.querySelector(randomPosition);
   return selectedPosition;
 }
 
 function getRandomValue(randomCloud) {
-  let randomValue = getRandomNumber(6);
-  // if (randomCloud.style.visibility == "hidden") {
-  if (randomValue <= 3) {
-    randomCloud.style.backgroundImage = "url('/images/billete-100.jpg')";
-    randomCloud.style.visibility = "visible";
-    const points = 100;
-    console.log("billete100");
-    return points;
-  } else if (randomValue <= 5 && randomValue > 3) {
-    randomCloud.style.backgroundImage = "url('/images/billete-200.jpg')";
-    randomCloud.style.visibility = "visible";
-    const points = 200;
-    console.log("billete200");
-    return points;
-  } else if (randomValue == 6) {
-    randomCloud.style.backgroundImage = "url('/images/billete-500.jpg')";
-    randomCloud.style.visibility = "visible";
-    const points = 500;
-    console.log("billete500");
-    return points;
-    // } console.log() para saber que billete estas pasando y comparar con la puntuacion que estás obteniendo a ver si coinciden
+  let randomValue = getRandomNumber(3);
+  if (randomCloud.style.visibility === "hidden") {
+    if (randomValue === 1) {
+      randomCloud.style.backgroundImage = "url('/images/billete-100.jpg')";
+      randomCloud.style.visibility = "visible";
+      console.log("billete100");
+      // randomCloud.addEventListener("click", () => {
+      //   randomCloud.style.visibility = "hidden";
+      //   score += 100;
+      //   getScore(score);
+      // });
+      randomCloud.onclick = function () {
+        randomCloud.style.visibility = "hidden";
+        score += 100;
+        getScore(score);
+      };
+    } else if (randomValue === 2) {
+      randomCloud.style.backgroundImage = "url('/images/billete-200.jpg')";
+      randomCloud.style.visibility = "visible";
+      console.log("billete200");
+      randomCloud.onclick = function () {
+        randomCloud.style.visibility = "hidden";
+        score += 200;
+        getScore(score);
+      };
+    } else if (randomValue == 3) {
+      randomCloud.style.backgroundImage = "url('/images/billete-500.jpg')";
+      randomCloud.style.visibility = "visible";
+      console.log("billete500");
+      randomCloud.onclick = function () {
+        randomCloud.style.visibility = "hidden";
+        score += 500;
+        getScore(score);
+      };
+    }
   }
 }
 
@@ -68,16 +81,17 @@ function playGame() {
   let counter = 0;
   let expiredBill = null;
   intervalId = setInterval(() => {
-    let cloudPosition = getRandomPosition(expiredBill);
+    let cloudPosition = getRandomPosition();
+    console.log(cloudPosition);
     let bill = getRandomValue(cloudPosition);
     counter++;
     if (!expiredBill) {
-      getPoints(bill, cloudPosition);
+      // getPoints(bill, cloudPosition);
       expiredBill = cloudPosition;
     } else {
       expiredBill.style.visibility = "hidden";
       expiredBill = cloudPosition;
-      getPoints(bill, cloudPosition);
+      // getPoints(bill, cloudPosition);
     }
 
     // let cloudPosition = getRandomPosition();
@@ -99,28 +113,28 @@ function playGame() {
     }
   }, 5000);
 }
-function getPoints(billPoints, billPosition) {
-  // let points = 0;
+// function getPoints(billPoints, billPosition) {
+//   // let points = 0;
 
-  billPosition.addEventListener(
-    "click",
+//   billPosition.addEventListener(
+//     "click",
 
-    () => {
-      if (billPosition.style.visibility === "visible") {
-        console.log(`im getting ${billPoints}points`);
-        billPosition.style.visibility = "hidden";
-        console.log(points);
-        points += billPoints;
-        getScore(points);
-      }
-    }
-  );
+//     () => {
+//       if (billPosition.style.visibility === "visible") {
+//         console.log(`im getting ${billPoints}points`);
+//         billPosition.style.visibility = "hidden";
+//         console.log(points);
+//         points += billPoints;
+//         getScore(points);
+//       }
+//     }
+//   );
 
-  //Crearte una variable global;
-  //En el evento click de la nube, sumas el valor a la variable global
-  //en lugar de acceder al valor atraves de este return, lo coges directamente de la variable global
-  // missing return
-}
+//Crearte una variable global;
+//En el evento click de la nube, sumas el valor a la variable global
+//en lugar de acceder al valor atraves de este return, lo coges directamente de la variable global
+// missing return
+// }
 
 function getScore(points) {
   scoreArr.push(points);
