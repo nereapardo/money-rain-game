@@ -1,13 +1,19 @@
 body,
 html {
   height: 100%;
+  font-family: "ParagraphFont";
 }
 
 html:hover {
   cursor: url("../images/billete-100.jpg"), auto;
 }
-
+@font-face {
+  font-family: "ParagraphFont";
+  src: url("/fonts/vcr_osd_mono_1.001-webfont.woff") format("woff2"),
+    url("/fonts/vcr_osd_mono_1.001-webfont.woff") format("woff");
+}
 .start-page {
+  font-family: "ParagraphFont", "Courier New", Courier, monospace;
   background-color: #24a0c4;
   background-image: url("/images/raining-money-gif.gif");
   height: 100%;
@@ -69,6 +75,7 @@ html:hover {
 .start-page-text {
 }
 .game-page {
+  font-family: "ParagraphFont", "Courier New", Courier, monospace;
   background-image: url("/images/sky2.jpg");
   height: 100%;
   width: 100%;
