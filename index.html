@@ -9,58 +9,74 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
+    <div class="sound">
+        
+        <button onclick="document.getElementById('player').play()"></button> 
+        <button onclick="document.getElementById('player').pause()"></button>
+        <button onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
+        <button onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
+      </div>
+    <audio  id="player" loop="loop">
+        <source src="/audio/it_s_raining.mp3" type="audio/ogg">
+        <source src="/audio/it_s_raining.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
         <div class="game-page">
             <nav id="score">
                 <div>Wallet:
                     <span>0</span>€
                 </div>
             </nav>
-            <div class="clouds">
-                <div class="clouds-row">
-                    <div id="cloud1" class="cloud">
-                        <img src="./images/nube1.png" alt="cloud">
-                        <div id="bill1" class="bill" style="visibility: hidden;"></div>
+            <div class="popUp" style="visibility: hidden;">
+                <h1></h1>
+                <button id="endLevelBtn"></button>
+            </div>
+                <div class="clouds">
+                    <div class="clouds-row">
+                        <div id="cloud1" class="cloud">
+                            <img src="./images/nube1.png" alt="cloud">
+                            <div id="bill1" class="bill" style="visibility: hidden;"></div>
+                        </div>
+                        <div id="cloud2" class="cloud">
+                            <img src="./images/nube2.png" alt="cloud">
+                            <div  id="bill2" class="bill" style="visibility: hidden;"></div>
+                        </div>
+                        <div id="cloud3" class="cloud">
+                            <img src="./images/nube3.png" alt="cloud">
+                            <div id="bill3" class="bill" style="visibility: hidden;"></div>
+                        </div>
                     </div>
-                    <div id="cloud2" class="cloud">
-                        <img src="./images/nube2.png" alt="cloud">
-                        <div  id="bill2" class="bill" style="visibility: hidden;"></div>
+                    <div class="clouds-row">
+                        <div id="cloud4" class="cloud">
+                            <img src="./images/nube4.png" alt="cloud">
+                            <div id="bill4" class="bill" style="visibility: hidden;"></div>
+                        </div>
+                        <div id="cloud5" class="cloud">
+                            <img src="./images/nube5.png" alt="cloud">
+                            <div id="bill5" class="bill" style="visibility: hidden;"></div>
+                        </div>
+                        <div id="cloud6" class="cloud">
+                            <img src="./images/nube6.png" alt="cloud">
+                            <div id="bill6" class="bill" style="visibility: hidden;"></div>
+                        </div>
                     </div>
-                    <div id="cloud3" class="cloud">
-                        <img src="./images/nube3.png" alt="cloud">
-                        <div id="bill3" class="bill" style="visibility: hidden;"></div>
-                    </div>
-                </div>
-                <div class="clouds-row">
-                    <div id="cloud4" class="cloud">
-                        <img src="./images/nube4.png" alt="cloud">
-                        <div id="bill4" class="bill" style="visibility: hidden;"></div>
-                    </div>
-                    <div id="cloud5" class="cloud">
-                        <img src="./images/nube5.png" alt="cloud">
-                        <div id="bill5" class="bill" style="visibility: hidden;"></div>
-                    </div>
-                    <div id="cloud6" class="cloud">
-                        <img src="./images/nube6.png" alt="cloud">
-                        <div id="bill6" class="bill" style="visibility: hidden;"></div>
-                    </div>
-                </div>
-                <div class="clouds-row">
-                    <div id="cloud7" class="cloud">
-                        <img src="./images/nube7.png" alt="cloud">
-                        <div id="bill7" class="bill" style="visibility: hidden;"></div>
-                    </div>
-                    <div id="cloud8" class="cloud">
-                        <img src="./images/nube8.png" alt="cloud">
-                        <div id="bill8" class="bill" style="visibility: hidden;"></div>
-                    </div>
-                    <div id="cloud9" class="cloud"><img src="./images/nube9.png" alt="cloud">
-                        <div id="bill9" class="bill" style="visibility: hidden;"></div>
+                    <div class="clouds-row">
+                        <div id="cloud7" class="cloud">
+                            <img src="./images/nube7.png" alt="cloud">
+                            <div id="bill7" class="bill" style="visibility: hidden;"></div>
+                        </div>
+                        <div id="cloud8" class="cloud">
+                            <img src="./images/nube8.png" alt="cloud">
+                            <div id="bill8" class="bill" style="visibility: hidden;"></div>
+                        </div>
+                        <div id="cloud9" class="cloud"><img src="./images/nube9.png" alt="cloud">
+                            <div id="bill9" class="bill" style="visibility: hidden;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="start-page">
-            <div class="start-page-main">
+            <div class="start-page">
+                <div class="start-page-main">
                 <div class="start-page-img-container">
                     <img src="./images/tio-gilito.png" alt="uncle-scrooge" class="uncle-scrooge">
                     <div class="platform-coins">
@@ -71,12 +87,12 @@
                 <div class="start-page-text-container">
                     <button class="language-btn"></button>
                     <p class="start-page-text"></p>
-                    <button id="start-btn">START</button>
+                    <button class="start-btn">START</button>
                 </div>
             </div>
             </div>
-<script src="./js/languages.js"></script>
-<script src="./js/classes-objects.js"></script>      
+            
+<script src="./js/languages.js"></script>    
 <script src="./js/index.js"></script>  
 </body>
 </html>
