@@ -150,7 +150,6 @@ html:hover {
   justify-content: center;
   border-radius: 15px;
   padding: 32px 24px;
-  z-index: 500;
   font-size: 48px;
   position: absolute;
   z-index: 20;
@@ -165,4 +164,19 @@ html:hover {
 }
 .sound {
   z-index: 999;
+}
+.easter-egg {
+  background-color: rgb(255, 255, 255);
+  min-width: 700px;
+  max-width: 900px;
+  min-height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 32px 24px;
+  font-size: 32px;
+  position: absolute;
+  z-index: 100;
 }

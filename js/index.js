@@ -7,12 +7,15 @@ const popUp = document.querySelector(".popUp");
 const popUpText = document.querySelector(".popUp h1");
 const endLevelBtn = document.querySelector("#endLevelBtn");
 const nextLevelBtn = document.querySelector("#nextLevel");
-let scoreArr = [];
+const easterEgg = document.querySelector(".easter-egg");
+const easterEegBtn = document.querySelector("#easter-egg-play-again");
+let intervalId;
 let score = 0;
 let counter = 0;
 let lastBill = 0;
 let lastBillCounter = 0;
 let countdownFinished = false;
+let audio = false;
 const levels = {
   1: {
     name: "LEVEL 1",
@@ -72,7 +75,7 @@ function getRandomValue(randomCloud, level) {
   let randomValue = 3;
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
-      randomCloud.style.backgroundImage = "url('/images/billete-100.jpg')";
+      randomCloud.style.backgroundImage = "url('../images/billete-100.jpg')";
       randomCloud.style.visibility = "visible";
 
       console.log("billete100");
@@ -83,7 +86,7 @@ function getRandomValue(randomCloud, level) {
         getScore(score, level);
       };
     } else if (randomValue === 2) {
-      randomCloud.style.backgroundImage = "url('/images/billete-200.jpg')";
+      randomCloud.style.backgroundImage = "url('../images/billete-200.jpg')";
       randomCloud.style.visibility = "visible";
 
       console.log("billete200");
@@ -94,7 +97,7 @@ function getRandomValue(randomCloud, level) {
         getScore(score, level);
       };
     } else if (randomValue == 3) {
-      randomCloud.style.backgroundImage = "url('/images/billete-500.jpg')";
+      randomCloud.style.backgroundImage = "url('../images/billete-500.jpg')";
       randomCloud.style.visibility = "visible";
 
       console.log("billete500");
@@ -117,7 +120,6 @@ function getRandomValue(randomCloud, level) {
 function playGame() {
   score = 0;
   counter = 0;
-  let intervalId;
   let expiredBill = null;
   intervalId = setInterval(() => {
     let cloudPosition = getRandomPosition();
@@ -182,28 +184,32 @@ function playGame() {
 }
 
 function getScore(points, level) {
-  scoreArr.push(points);
-  if (
-    scoreArr.length - 1 === 500 && //<--- revisar
-    scoreArr.length - 2 === 500 &&
-    scoreArr.length - 3 === 500
-  ) {
-    // score += points;
-    scoreText.innerText = `${points}/${levels[level].minScore}`;
-    instantLose();
-  } else {
-    console.log(`my score is ${points}`);
-    scoreText.innerText = `${points}/${levels[level].minScore}`;
-  }
+  console.log(`my score is ${points}`);
+  scoreText.innerText = `${points}/${levels[level].minScore}`;
 }
 function instantLose() {
   if (lastBillCounter === 3) {
     console.log("looooser!");
+    clearInterval(intervalId);
+    easterEgg.style.visibility = "visible";
+    easterEegBtn.innerText = "PLAY AGAIN";
+    easterEegBtn.onclick = function () {
+      easterEgg.style.visibility = "visible";
+      window.location.reload();
+    };
   }
 }
+const loadAudio = () => {
+  const sound = new Audio("./audio/it_s_raining.mp3");
+  sound.preload = "auto";
+  sound.load();
+  audio = sound;
+};
 
 window.addEventListener("load", () => {
-  document.getElementById("player").play();
+  // document.getElementById("player").play();
+  // loadAudio();
+  // audio.play();
   startBtn.addEventListener("click", () => {
     startPage.style.visibility = "hidden";
     startGame();
