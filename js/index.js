@@ -201,11 +201,11 @@ function instantLose() {
     };
   }
 }
-const loadAudio = () => {
-  const sound = new Audio("audio/it_s_raining.mp3");
-  sound.preload = "auto";
-  sound.load();
-  audio = sound;
+// const loadAudio = () => {
+//   const sound = new Audio("audio/it_s_raining.mp3");
+//   sound.preload = "auto";
+//   sound.load();
+//   audio = sound;
 };
 // audio not working
 window.addEventListener("load", () => {
