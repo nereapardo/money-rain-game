@@ -206,7 +206,7 @@ function instantLose() {
 //   sound.preload = "auto";
 //   sound.load();
 //   audio = sound;
-};
+// };
 // audio not working
 window.addEventListener("load", () => {
   // document.getElementById("player").play();
