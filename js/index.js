@@ -5,8 +5,8 @@ const scoreText = document.querySelector("#score div span");
 const bill = document.querySelector(".bill");
 const popUp = document.querySelector(".popUp");
 const popUpText = document.querySelector(".popUp h1");
-const endLevelBtn = document.querySelector("#endLevelBtn");
-const nextLevelBtn = document.querySelector("#nextLevel");
+const endLevelBtn = document.querySelector("#end-level-btn");
+const nextLevelBtn = document.querySelector("#next-level");
 const easterEgg = document.querySelector(".easter-egg");
 const easterEegBtn = document.querySelector("#easter-egg-play-again");
 let intervalId;
@@ -21,16 +21,16 @@ const levels = {
   1: {
     name: "LEVEL 1",
     minScore: 2000,
-    speed: 2000,
+    speed: 1200,
   },
   2: {
     name: "LEVEL 2",
-    minScore: 2300,
+    minScore: 2200,
     speed: 1500,
   },
   3: {
     name: "LEVEL 3",
-    minScore: 2700,
+    minScore: 2300,
     speed: 1000,
   },
 };
@@ -73,6 +73,7 @@ function getRandomPosition() {
 
 function getRandomValue(randomCloud, level) {
   let randomValue = getRandomNumber(3);
+  // let randomValue = 3;
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
       console.log("billete 100");
@@ -122,6 +123,8 @@ function getRandomValue(randomCloud, level) {
 function playGame() {
   score = 0;
   counter = 0;
+  lastBill = 0;
+  lastBillCounter = 0;
   let expiredBill = null;
   intervalId = setInterval(() => {
     let cloudPosition = getRandomPosition();
@@ -143,10 +146,10 @@ function playGame() {
       if (score < levels[level].minScore) {
         level++;
         popUp.style.visibility = "visible";
-        endLevelBtn.className = `playAgain`;
+        endLevelBtn.className = `play-again`;
         endLevelBtn.innerText = "PLAY AGAIN";
         popUpText.innerText = `GAME OVER`;
-        const playAgainBtn = document.querySelector(".playAgain");
+        const playAgainBtn = document.querySelector(".play-again");
         playAgainBtn.onclick = function () {
           window.location.reload();
         };
@@ -156,7 +159,7 @@ function playGame() {
           popUp.style.visibility = "visible";
           endLevelBtn.className = `level${level}`;
           endLevelBtn.innerText = "PLAY";
-          popUpText.innerText = `LEVEL ${level}`;
+          popUpText.innerText = `NEXT LEVEL`;
           const level2Btn = document.querySelector(`.level${level}`);
           level2Btn.onclick = function () {
             popUp.style.visibility = "hidden";
@@ -169,9 +172,9 @@ function playGame() {
           score = 0;
           popUp.style.visibility = "visible";
           popUpText.innerText = `CONGRATULATIONS YOU WON!`;
-          endLevelBtn.className = "playAgain";
+          endLevelBtn.className = "play-again";
           endLevelBtn.innerText = "PLAY AGAIN";
-          const playAgainBtn = document.querySelector(".playAgain");
+          const playAgainBtn = document.querySelector(".play-again");
           playAgainBtn.onclick = function () {
             window.location.reload();
           };
