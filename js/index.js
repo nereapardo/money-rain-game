@@ -207,7 +207,7 @@ const loadAudio = () => {
   sound.load();
   audio = sound;
 };
-
+// audio not working
 window.addEventListener("load", () => {
   // document.getElementById("player").play();
   // loadAudio();
