@@ -201,21 +201,18 @@ function instantLose() {
     };
   }
 }
-// const loadAudio = () => {
-//   const sound = new Audio("audio/it_s_raining.mp3");
-//   sound.preload = "auto";
-//   sound.load();
-//   audio = sound;
-// };
-// audio not working
+const loadAudio = () => {
+  const sound = new Audio("audio/it_s_raining.mp3");
+  sound.preload = "auto";
+  sound.load();
+  audio = sound;
+};
 window.addEventListener("load", () => {
   // document.getElementById("player").play();
-  // loadAudio();
-  // audio.play();
+  loadAudio();
+  audio.play();
   startBtn.addEventListener("click", () => {
     startPage.style.visibility = "hidden";
     startGame();
   });
-
-  // playGame.onclick();
 });
