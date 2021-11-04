@@ -10,6 +10,7 @@ const nextLevelBtn = document.querySelector("#next-level");
 const easterEgg = document.querySelector(".easter-egg");
 const easterEegBtn = document.querySelector("#easter-egg-play-again");
 const muteUnmuteBtn = document.querySelector(".mute-unmute-btn");
+// let mouseCursor = document.querySelector("#cursor");
 let intervalId;
 let score = 0;
 let counter = 0;
@@ -225,11 +226,11 @@ window.addEventListener("load", () => {
   muteUnmuteBtn.onclick = function () {
     if (!muted) {
       muted = true;
-      muteUnmuteBtn.style.backgroundImage = "url('/images/unmute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('images/unmute-icon.jpg')";
       song.pause();
     } else if (muted) {
       muted = false;
-      muteUnmuteBtn.style.backgroundImage = "url('/images/mute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('images/mute-icon.jpg')";
       song.play();
     }
   };
@@ -238,3 +239,9 @@ window.addEventListener("load", () => {
     startGame();
   };
 });
+
+// window.addEventListener("mousemove", moveCursor);
+// function moveCursor(e) {
+//   mouseCursor.style.top = e.pageY + "px";
+//   mouseCursor.style.left = e.pageX + "px";
+// }
