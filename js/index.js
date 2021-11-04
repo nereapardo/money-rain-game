@@ -10,7 +10,6 @@ const nextLevelBtn = document.querySelector("#next-level");
 const easterEgg = document.querySelector(".easter-egg");
 const easterEegBtn = document.querySelector("#easter-egg-play-again");
 const muteUnmuteBtn = document.querySelector(".mute-unmute-btn");
-// let mouseCursor = document.querySelector("#cursor");
 let intervalId;
 let score = 0;
 let counter = 0;
@@ -23,23 +22,21 @@ let muted = false;
 const levels = {
   1: {
     name: "LEVEL 1",
-    minScore: 2000,
+    minScore: 1500,
     speed: 2000,
   },
   2: {
     name: "LEVEL 2",
-    minScore: 2200,
+    minScore: 1700,
     speed: 1500,
   },
   3: {
     name: "LEVEL 3",
-    minScore: 2300,
+    minScore: 1900,
     speed: 1000,
   },
 };
 let level = 1;
-
-// FUNCTIONS
 
 function getRandomNumber(max) {
   const res = Math.ceil(Math.random() * max);
@@ -54,13 +51,13 @@ function getRandomPosition() {
 
 function getRandomValue(randomCloud, level) {
   let randomValue = getRandomNumber(3);
-  // let randomValue = 3;
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
       console.log("billete 100");
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
+        console.log("billete 100");
         randomCloud.style.visibility = "hidden";
         score += 100;
         lastBill = 100;
@@ -75,6 +72,7 @@ function getRandomValue(randomCloud, level) {
       randomCloud.style.backgroundImage = "url('images/billete-200.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
+        console.log("billete 200");
         randomCloud.style.visibility = "hidden";
         score += 200;
         lastBill = 200;
@@ -88,6 +86,7 @@ function getRandomValue(randomCloud, level) {
       randomCloud.style.backgroundImage = "url('images/billete-500.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
+        console.log("billete 500");
         randomCloud.style.visibility = "hidden";
         score += 500;
         if (lastBill === 500) {
@@ -143,7 +142,6 @@ function playGame() {
       expiredBill = cloudPosition;
     } else {
       if (expiredBill == cloudPosition) {
-        // expiredBill = cloudPosition;
         return;
       }
       expiredBill.style.visibility = "hidden";
@@ -226,11 +224,11 @@ window.addEventListener("load", () => {
   muteUnmuteBtn.onclick = function () {
     if (!muted) {
       muted = true;
-      muteUnmuteBtn.style.backgroundImage = "url('images/unmute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('images/mute-icon.jpg')";
       song.pause();
     } else if (muted) {
       muted = false;
-      muteUnmuteBtn.style.backgroundImage = "url('images/mute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('images/unmute-icon.jpg')";
       song.play();
     }
   };
@@ -239,9 +237,3 @@ window.addEventListener("load", () => {
     startGame();
   };
 });
-
-// window.addEventListener("mousemove", moveCursor);
-// function moveCursor(e) {
-//   mouseCursor.style.top = e.pageY + "px";
-//   mouseCursor.style.left = e.pageX + "px";
-// }

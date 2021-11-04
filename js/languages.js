@@ -14,27 +14,27 @@ let instructionsText = document.querySelector(".start-page-text");
 let easterEegText = document.querySelector(".easter-egg p");
 languageBtnStartPage.innerText = "ESPAÑOL";
 languageBtnEasterEgg.innerText = "ESPAÑOL";
-instructionsText.innerText = gameInstructions.description.en;
-easterEegText.innerText = gameInstructions.easterEeg.en;
+instructionsText.innerText = gameInstructions.description.es;
+easterEegText.innerText = gameInstructions.easterEeg.es;
 languageBtnStartPage.innerText = "ESPAÑOL";
 languageBtnEasterEgg.innerText = "ESPAÑOL";
 
 languageBtnStartPage.addEventListener("click", () => {
-  if (languageBtnStartPage.innerText === "ESPAÑOL") {
-    languageBtnStartPage.innerText = "ENGLISH";
-    instructionsText.innerText = gameInstructions.description.es;
-  } else if (languageBtnStartPage.innerText === "ENGLISH") {
+  if (languageBtnStartPage.innerText === "ENGLISH") {
     languageBtnStartPage.innerText = "ESPAÑOL";
+    instructionsText.innerText = gameInstructions.description.es;
+  } else if (languageBtnStartPage.innerText === "ESPAÑOL") {
+    languageBtnStartPage.innerText = "ENGLISH";
     instructionsText.innerText = gameInstructions.description.en;
   }
 });
 
 languageBtnEasterEgg.addEventListener("click", () => {
-  if (languageBtnEasterEgg.innerText === "ESPAÑOL") {
-    languageBtnEasterEgg.innerText = "ENGLISH";
-    easterEegText.innerText = gameInstructions.easterEeg.es;
-  } else if (languageBtnEasterEgg.innerText === "ENGLISH") {
+  if (languageBtnEasterEgg.innerText === "ENGLISH") {
     languageBtnEasterEgg.innerText = "ESPAÑOL";
+    easterEegText.innerText = gameInstructions.easterEeg.es;
+  } else if (languageBtnEasterEgg.innerText === "ESPAÑOL") {
+    languageBtnEasterEgg.innerText = "ENGLISH";
     easterEegText.innerText = gameInstructions.easterEeg.en;
   }
 });

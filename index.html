@@ -12,12 +12,6 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <!-- <div class="sound">
-        <button onclick="document.getElementById('player').play()"></button> 
-        <button onclick="document.getElementById('player').pause()"></button>
-        <button onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
-        <button onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
-      </div> -->
         <div class="game-page">
             <nav id="score">
                 <div>Wallet:
@@ -29,7 +23,9 @@
                 <button id="end-level-btn"></button>
             </div>
             <div class="easter-egg" style="visibility: hidden;">
-                <button class="language-btn-easter-egg"></button>
+                <div class="language-btn-easter-egg-container">
+                    <button class="language-btn-easter-egg"></button>
+                </div>
                 <p></p>
                 <button id="easter-egg-play-again"></button>
             </div>
@@ -97,11 +93,9 @@
             </div>
             </div>
             <div class="mute-unmute">
-                <button class="mute-unmute-btn"><div><a href="/images/mute-icon.jpg"></a></div></button>
+                <button class="mute-unmute-btn"><div></div></button>
             </div>
-            <div class="frame">
-                <img id="cursor" src="../images/open-hand.png">
-            </div>
+        
             
             
 <script src="./js/languages.js"></script>    

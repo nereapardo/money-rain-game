@@ -80,10 +80,16 @@ html:hover {
 .language-btn-start-page,
 .language-btn-easter-egg {
   height: fit-content;
+  width: fit-content;
   color: #24a0c4;
   background-color: transparent;
   border-radius: 3px;
   border: 2px solid #24a0c4;
+}
+.language-btn-easter-egg-container {
+  width: 900px;
+  display: flex;
+  justify-content: end;
 }
 .title {
   font-family: "Press Start 2P", cursive;
@@ -236,7 +242,7 @@ html:hover {
 }
 .mute-unmute-btn {
   background-color: white;
-  background-image: url("../images/mute-icon.jpg");
+  background-image: url("../images/unmute-icon.jpg");
   background-size: cover;
   width: 20px;
   height: 20px;
