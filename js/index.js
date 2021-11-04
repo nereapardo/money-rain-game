@@ -230,7 +230,7 @@ window.addEventListener("load", () => {
       song.pause();
     } else if (muted) {
       muted = false;
-      muteUnmuteBtn.style.backgroundImage = "url('images/unmute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('images/mute-icon.jpg')";
       song.play();
     }
   };
