@@ -209,9 +209,9 @@ const loadAudio = () => {
 };
 
 window.addEventListener("load", () => {
-  document.getElementById("player").play();
-  loadAudio();
-  audio.play();
+  // document.getElementById("player").play();
+  // loadAudio();
+  // audio.play();
   startBtn.addEventListener("click", () => {
     startPage.style.visibility = "hidden";
     startGame();
