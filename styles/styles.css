@@ -106,6 +106,16 @@ html:hover {
   justify-content: center;
   margin: 24px 72px;
   position: relative;
+  animation: MoveUpDown 1s linear infinite;
+}
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 4px;
+  }
 }
 .clouds-row img {
   width: 80%;

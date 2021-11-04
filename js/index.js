@@ -75,6 +75,7 @@ function getRandomValue(randomCloud, level) {
   let randomValue = getRandomNumber(3);
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
+      console.log("billete 100");
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
@@ -86,6 +87,7 @@ function getRandomValue(randomCloud, level) {
         billSound.play();
       };
     } else if (randomValue === 2) {
+      console.log("billete 200");
       randomCloud.style.backgroundImage = "url('images/billete-200.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
