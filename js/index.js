@@ -9,6 +9,7 @@ const endLevelBtn = document.querySelector("#end-level-btn");
 const nextLevelBtn = document.querySelector("#next-level");
 const easterEgg = document.querySelector(".easter-egg");
 const easterEegBtn = document.querySelector("#easter-egg-play-again");
+const muteUnmuteBtn = document.querySelector(".mute-unmute-btn");
 let intervalId;
 let score = 0;
 let counter = 0;
@@ -17,6 +18,7 @@ let lastBillCounter = 0;
 let countdownFinished = false;
 let song = false;
 let billSound = false;
+let muted = false;
 const levels = {
   1: {
     name: "LEVEL 1",
@@ -85,7 +87,9 @@ function getRandomValue(randomCloud, level) {
         lastBill = 100;
         lastBillCounter = 0;
         getScore(score, level);
-        billSound.play();
+        if (!muted) {
+          billSound.play();
+        }
       };
     } else if (randomValue === 2) {
       console.log("billete 200");
@@ -97,7 +101,9 @@ function getRandomValue(randomCloud, level) {
         lastBill = 200;
         lastBillCounter = 0;
         getScore(score, level);
-        billSound.play();
+        if (!muted) {
+          billSound.play();
+        }
       };
     } else if (randomValue == 3) {
       randomCloud.style.backgroundImage = "url('images/billete-500.jpg')";
@@ -111,10 +117,11 @@ function getRandomValue(randomCloud, level) {
           lastBillCounter = 1;
         }
         lastBill = 500;
-
         instantLose();
         getScore(score, level);
-        billSound.play();
+        if (!muted) {
+          billSound.play();
+        }
       };
     }
   }
@@ -213,8 +220,19 @@ const loadAudio = () => {
 window.addEventListener("load", () => {
   loadAudio();
   song.play();
-  startBtn.addEventListener("click", () => {
+  muteUnmuteBtn.onclick = function () {
+    if (!muted) {
+      muted = true;
+      muteUnmuteBtn.style.backgroundImage = "url('images/unmute-icon.jpg')";
+      song.pause();
+    } else if (muted) {
+      muted = false;
+      muteUnmuteBtn.style.backgroundImage = "url('images/mute-icon.jpg')";
+      song.play();
+    }
+  };
+  startBtn.onclick = function () {
     startPage.style.visibility = "hidden";
-    startGame();
-  });
+    startGame;
+  };
 });

@@ -222,3 +222,23 @@ html:hover {
   position: absolute;
   z-index: 100;
 }
+.mute-unmute {
+  background-color: white;
+  position: absolute;
+  top: 6%;
+  left: 15%;
+  z-index: 999;
+  padding: 8px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mute-unmute-btn {
+  background-color: white;
+  background-image: url("../images/mute-icon.jpg");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
