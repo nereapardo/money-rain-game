@@ -86,7 +86,7 @@ function getRandomValue(randomCloud, level) {
         billSound.play();
       };
     } else if (randomValue === 2) {
-      randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
+      randomCloud.style.backgroundImage = "url('images/billete-200.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
         randomCloud.style.visibility = "hidden";
