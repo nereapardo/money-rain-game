@@ -67,10 +67,39 @@ html:hover {
   height: fit-content;
   border-radius: 15px;
   padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.start-page-tex button {
+
+.title-lenguage-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.language-btn-start-page {
+  height: fit-content;
+  color: #24a0c4;
+  background-color: white;
+  border-radius: 3px;
+  border: 2px solid #24a0c4;
+}
+.title {
+  font-family: "Press Start 2P", cursive;
+  color: #dd0827;
+  font-size: 64px;
+}
+.start-btn {
+  font-family: "Press Start 2P", cursive;
+  font-size: 24px;
+  height: fit-content;
   width: fit-content;
-  margin: 72px;
+  padding: 16px;
+  color: white;
+  background-color: #dd0827;
+  border-radius: 3px;
+  margin-top: 48px;
+  border: none;
 }
 .game-page {
   font-family: "ParagraphFont", "Courier New", Courier, monospace;
@@ -97,7 +126,7 @@ html:hover {
 .clouds-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-grow: 1;
 }
 .cloud {
@@ -160,6 +189,7 @@ html:hover {
   justify-content: center;
   border-radius: 15px;
   padding: 32px 24px;
+  font-family: "Press Start 2P", cursive;
   font-size: 48px;
   position: absolute;
   z-index: 20;
