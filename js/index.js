@@ -23,7 +23,7 @@ const levels = {
   1: {
     name: "LEVEL 1",
     minScore: 2000,
-    speed: 1200,
+    speed: 2000,
   },
   2: {
     name: "LEVEL 2",
@@ -37,33 +37,11 @@ const levels = {
   },
 };
 let level = 1;
+
 // FUNCTIONS
-function startGame() {
-  getScore(score, level);
-  let countDownCounter = 4;
-  let levelName = levels[level].name;
-  let countdownNumber = document.createElement("h1");
-  countdownNumber.id = "countdown";
-  gamePage.appendChild(countdownNumber);
-  const countdown = setInterval(() => {
-    if (countDownCounter === 4) {
-      countdownNumber.innerText = `${levelName}`;
-      countDownCounter--;
-    } else {
-      countdownNumber.innerText = `${countDownCounter}`;
-      countDownCounter--;
-    }
-    if (countDownCounter < -1) {
-      clearInterval(countdown);
-      countdownNumber.remove();
-      playGame();
-    }
-  }, 1000);
-}
 
 function getRandomNumber(max) {
   const res = Math.ceil(Math.random() * max);
-
   return res;
 }
 
@@ -125,6 +103,29 @@ function getRandomValue(randomCloud, level) {
       };
     }
   }
+}
+
+function startGame() {
+  getScore(score, level);
+  let countDownCounter = 4;
+  let levelName = levels[level].name;
+  let countdownNumber = document.createElement("h1");
+  countdownNumber.id = "countdown";
+  gamePage.appendChild(countdownNumber);
+  const countdown = setInterval(() => {
+    if (countDownCounter === 4) {
+      countdownNumber.innerText = `${levelName}`;
+      countDownCounter--;
+    } else {
+      countdownNumber.innerText = `${countDownCounter}`;
+      countDownCounter--;
+    }
+    if (countDownCounter < -1) {
+      clearInterval(countdown);
+      countdownNumber.remove();
+      playGame();
+    }
+  }, 1000);
 }
 
 function playGame() {
@@ -206,6 +207,7 @@ function instantLose() {
     };
   }
 }
+
 const loadAudio = () => {
   const backgroundSong = new Audio("audio/it_s_raining.mp3");
   const catchBillSound = new Audio("audio/money_collect.mp3");
@@ -223,16 +225,16 @@ window.addEventListener("load", () => {
   muteUnmuteBtn.onclick = function () {
     if (!muted) {
       muted = true;
-      muteUnmuteBtn.style.backgroundImage = "url('images/unmute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('/images/unmute-icon.jpg')";
       song.pause();
     } else if (muted) {
       muted = false;
-      muteUnmuteBtn.style.backgroundImage = "url('images/mute-icon.jpg')";
+      muteUnmuteBtn.style.backgroundImage = "url('/images/mute-icon.jpg')";
       song.play();
     }
   };
   startBtn.onclick = function () {
     startPage.style.visibility = "hidden";
-    startGame;
+    startGame();
   };
 });
