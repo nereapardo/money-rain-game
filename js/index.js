@@ -15,7 +15,8 @@ let counter = 0;
 let lastBill = 0;
 let lastBillCounter = 0;
 let countdownFinished = false;
-let audio = false;
+let song = false;
+let billSound = false;
 const levels = {
   1: {
     name: "LEVEL 1",
@@ -76,32 +77,28 @@ function getRandomValue(randomCloud, level) {
     if (randomValue === 1) {
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
       randomCloud.style.visibility = "visible";
-
-      console.log("billete100");
       randomCloud.onclick = function () {
         randomCloud.style.visibility = "hidden";
         score += 100;
         lastBill = 100;
         lastBillCounter = 0;
         getScore(score, level);
+        billSound.play();
       };
     } else if (randomValue === 2) {
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
       randomCloud.style.visibility = "visible";
-
-      console.log("billete200");
       randomCloud.onclick = function () {
         randomCloud.style.visibility = "hidden";
         score += 200;
         lastBill = 200;
         lastBillCounter = 0;
         getScore(score, level);
+        billSound.play();
       };
     } else if (randomValue == 3) {
       randomCloud.style.backgroundImage = "url('images/billete-500.jpg')";
       randomCloud.style.visibility = "visible";
-
-      console.log("billete500");
       randomCloud.onclick = function () {
         randomCloud.style.visibility = "hidden";
         score += 500;
@@ -114,6 +111,7 @@ function getRandomValue(randomCloud, level) {
 
         instantLose();
         getScore(score, level);
+        billSound.play();
       };
     }
   }
@@ -138,7 +136,6 @@ function playGame() {
       expiredBill = cloudPosition;
     }
     if (counter >= 9) {
-      console.log("my score is", score);
       clearInterval(intervalId);
       expiredBill.style.visibility = "hidden";
       if (score < levels[level].minScore) {
@@ -153,7 +150,6 @@ function playGame() {
         };
       } else {
         if (level < 3) {
-          console.log("ganaste primer nivel");
           level++;
           popUp.style.visibility = "visible";
           endLevelBtn.className = `level${level}`;
@@ -181,17 +177,14 @@ function playGame() {
       }
     }
   }, levels[level].speed);
-  console.log(`mi final score is`, score);
   return score;
 }
 
 function getScore(points, level) {
-  console.log(`my score is ${points}`);
   scoreText.innerText = `${points}/${levels[level].minScore}`;
 }
 function instantLose() {
   if (lastBillCounter === 3) {
-    console.log("looooser!");
     clearInterval(intervalId);
     easterEgg.style.visibility = "visible";
     easterEegBtn.innerText = "PLAY AGAIN";
@@ -202,15 +195,19 @@ function instantLose() {
   }
 }
 const loadAudio = () => {
-  const sound = new Audio("audio/it_s_raining.mp3");
-  sound.preload = "auto";
-  sound.load();
-  audio = sound;
+  const backgroundSong = new Audio("audio/it_s_raining.mp3");
+  const catchBillSound = new Audio("audio/money_collect.mp3");
+  backgroundSong.preload = "auto";
+  catchBillSound.preload = "auto";
+  backgroundSong.load();
+  catchBillSound.load();
+  song = backgroundSong;
+  billSound = catchBillSound;
 };
+
 window.addEventListener("load", () => {
-  // document.getElementById("player").play();
   loadAudio();
-  audio.play();
+  song.play();
   startBtn.addEventListener("click", () => {
     startPage.style.visibility = "hidden";
     startGame();
