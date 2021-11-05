@@ -4,7 +4,7 @@ const gameInstructions = {
     en: " Who said that money does not fall from the sky? In this game the rain falls in the form of 100€, 200€ and 500€ bills. Click to collect as many bills as you can. Your mission is to pass the 3 levels and get rich. For each level, the minimum amount of money to collect and the speed will increase. Try to fill your wallet to the maximum, but be careful, because greed breaks the sack.",
   },
   easterEeg: {
-    es: "Has perdido! Ya te advertí que la codicia rompe el saco. Cada vez que coges 3 billetes de 500€ pierdes, por lo que no seas avaricioso y déjalo caer.",
+    es: "Has perdido! Ya te advertí que la avaricia rompe el saco. Cada vez que coges 3 billetes de 500€ pierdes, por lo que no seas codicioso y déjalo caer.",
     en: "You have lost! I already warned you that greed breaks the sack. Every time you take 3 bills of 500€ you lose, so don't be greedy and drop it.",
   },
 };
