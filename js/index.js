@@ -53,11 +53,9 @@ function getRandomValue(randomCloud, level) {
   let randomValue = getRandomNumber(3);
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
-      console.log("billete 100");
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
-        console.log("billete 100");
         randomCloud.style.visibility = "hidden";
         score += 100;
         lastBill = 100;
@@ -68,11 +66,9 @@ function getRandomValue(randomCloud, level) {
         }
       };
     } else if (randomValue === 2) {
-      console.log("billete 200");
       randomCloud.style.backgroundImage = "url('images/billete-200.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
-        console.log("billete 200");
         randomCloud.style.visibility = "hidden";
         score += 200;
         lastBill = 200;
@@ -86,7 +82,6 @@ function getRandomValue(randomCloud, level) {
       randomCloud.style.backgroundImage = "url('images/billete-500.jpg')";
       randomCloud.style.visibility = "visible";
       randomCloud.onclick = function () {
-        console.log("billete 500");
         randomCloud.style.visibility = "hidden";
         score += 500;
         if (lastBill === 500) {
