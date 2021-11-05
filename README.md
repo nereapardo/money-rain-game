@@ -1,5 +1,4 @@
 # money-rain-game![baner](https://user-images.githubusercontent.com/77238108/140481385-8693f4e9-455d-4625-ac6a-01594fd9dbcc.PNG)
-# MONEY RAIN
 
 Who said that money does not fall from the sky? Try to fill your wallet to the maximum, but be careful, because greed breaks the sack.
 
