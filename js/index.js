@@ -19,6 +19,7 @@ let countdownFinished = false;
 let song = false;
 let billSound = false;
 let muted = false;
+let clicked = false;
 const levels = {
   1: {
     name: "LEVEL 1",

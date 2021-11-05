@@ -124,6 +124,9 @@ html:hover {
   align-items: center;
   cursor: url("../images/open-hand.png") 16 16, auto;
 }
+.game-page:active {
+  cursor: url("../images/closed-hand.png") 15 15, auto;
+}
 .clouds {
   display: flex;
   flex-direction: column;
@@ -203,6 +206,7 @@ html:hover {
   z-index: 20;
   color: #dd0827;
   text-align: center;
+  cursor: default;
 }
 .sound {
   position: absolute;
@@ -226,6 +230,7 @@ html:hover {
   font-size: 32px;
   position: absolute;
   z-index: 100;
+  cursor: default;
 }
 .mute-unmute {
   background-color: white;
