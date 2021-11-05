@@ -122,6 +122,7 @@ html:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: url("../images/open-hand.png") 16 16, auto;
 }
 .clouds {
   display: flex;
