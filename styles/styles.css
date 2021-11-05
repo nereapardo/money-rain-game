@@ -21,7 +21,6 @@ html:hover {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: center;
   align-items: center;
   z-index: 990;
   position: absolute;
@@ -33,7 +32,6 @@ html:hover {
   max-height: 800px;
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
 }
 .start-page-img-container {
   height: 600px;
@@ -247,4 +245,18 @@ html:hover {
   width: 20px;
   height: 20px;
   border: none;
+}
+@media screen and (max-width: 1400px) {
+  body {
+    background-image: url("../images/small-devices.PNG");
+    width: 1vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .start-page,
+  .game-page,
+  .popUp {
+    visibility: hidden;
+  }
 }
