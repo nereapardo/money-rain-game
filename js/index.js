@@ -23,7 +23,7 @@ let clicked = false;
 const levels = {
   1: {
     name: "LEVEL 1",
-    minScore: 1500,
+    minScore: 2000,
     speed: 2000,
   },
   2: {
@@ -51,7 +51,8 @@ function getRandomPosition() {
 }
 
 function getRandomValue(randomCloud, level) {
-  let randomValue = getRandomNumber(3);
+  // let randomValue = getRandomNumber(3);
+  let randomValue = 3;
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
