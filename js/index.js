@@ -51,8 +51,7 @@ function getRandomPosition() {
 }
 
 function getRandomValue(randomCloud, level) {
-  // let randomValue = getRandomNumber(3);
-  let randomValue = 3;
+  let randomValue = getRandomNumber(3);
   if (randomCloud.style.visibility === "hidden") {
     if (randomValue === 1) {
       randomCloud.style.backgroundImage = "url('images/billete-100.jpg')";
